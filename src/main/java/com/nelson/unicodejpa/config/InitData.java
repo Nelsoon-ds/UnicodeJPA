@@ -7,7 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class InitData implements CommandLineRunner {
@@ -18,30 +19,10 @@ public class InitData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        StopWatch sw = new StopWatch();
-//        Set<Character> collection = new HashSet<>();
-//        Set<Unicode> unicodes = new HashSet<>();
-//        int n = 0;
-//        int upperLim = 65536;
-//        for (int i = 0; i< upperLim; i++) {
-//            collection.add((char) n);
-//            n++;
-//        }
-//        for (Character character : collection) {
-//            int code = (int) character;
-//            Unicode unicode = new Unicode(code, character);
-//            unicodes.add(unicode);
-//        }
-//
-//        sw.start("Save all");
-//        unicodeRepository.saveAll(unicodes);
-//        sw.stop();
-//        System.out.println(sw.prettyPrint()); Det tager den 21.3712 sekunder
-//    }
         int upperLim = 65536;
-List<Unicode> unicodeList = new ArrayList<>(upperLim);
-        for (int i = 0; i< upperLim; i++) {
-            unicodeList.add(new Unicode(i, (char)i ));
+        List<Unicode> unicodeList = new ArrayList<>(upperLim);
+        for (int i = 0; i < upperLim; i++) {
+            unicodeList.add(new Unicode(i, (char) i));
         }
         StopWatch sw = new StopWatch();
         sw.start("Save Unicodes");
@@ -51,4 +32,4 @@ List<Unicode> unicodeList = new ArrayList<>(upperLim);
 
     }
 
-    }
+}
